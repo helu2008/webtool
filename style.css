@@ -1,0 +1,268 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    /* border-radius: 10px; <-- 删除此行 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.family-tree-layout {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: stretch;
+}
+
+.page {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    /* border-radius: 8px; <-- 删除此行 */
+    background-color: #f9f9f9;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.page h2 {
+    text-align: center;
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.page textarea {
+    width: 100%;
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    /* border-radius: 5px; <-- 删除此行 */
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 120px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.page input[type="file"] {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 200px;
+    display: block;
+    margin-top: 10px;
+    border: 1px solid #eee;
+    /* border-radius: 5px; <-- 删除此行 */
+    object-fit: contain;
+    background-color: #e9e9e9;
+}
+/* 初始隐藏预览图 */
+.image-preview[src="#"] {
+    display: none;
+}
+
+
+.middle-section {
+    width: 250px; /* 中间部分的宽度 */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* 调整中间部分的上下连接线 */
+.middle-section::before,
+.middle-section::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background-color: #aaa;
+    z-index: 1;
+    /* border-top-left-radius: 1px; <-- 删除此行 */
+    /* border-top-right-radius: 1px; <-- 删除此行 */
+    /* border-bottom-left-radius: 1px; <-- 删除此行 */
+    /* border-bottom-right-radius: 1px; <-- 删除此行 */
+}
+
+.middle-section::before {
+    top: 0;
+    height: calc(50% - 15px);
+}
+
+.middle-section::after {
+    bottom: 0;
+    height: calc(50% - 15px);
+}
+
+
+.middle-top, .middle-middle, .middle-bottom {
+    border: 1px solid #ccc;
+    padding: 15px;
+    /* border-radius: 8px; <-- 删除此行 */
+    background-color: #f9f9f9;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.middle-top h2, .middle-middle h2, .middle-bottom h2 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.middle-top textarea, .middle-bottom textarea {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ddd;
+    /* border-radius: 4px; <-- 删除此行 */
+    font-size: 0.95rem;
+    resize: vertical;
+    min-height: 60px;
+    box-sizing: border-box;
+}
+
+#svgPreview svg {
+    transform: scale(2); /* 1.5x size */
+    transform-origin: top left; /* or 'center' */
+}
+
+/* ****** 中间中部分的新样式 ****** */
+.middle-middle {
+    padding: 0;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle-middle h2 {
+    position: relative;
+    z-index: 5;
+    padding-top: 15px;
+}
+
+
+/* 黑色图形部分 */
+.middle-middle::before, .middle-middle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 30px; /* 黑色图形的高度 */
+    background-color: black;
+    z-index: 3;
+    /* border-radius: 8px; <-- 删除此行 */
+    /* border-top-left-radius: 8px; <-- 删除此行 */
+    /* border-top-right-radius: 8px; <-- 删除此行 */
+    /* border-bottom-left-radius: 0; <-- 删除此行 */
+    /* border-bottom-right-radius: 0; <-- 删除此行 */
+}
+
+/* 上方的黑色图形 */
+.middle-middle::before {
+    top: 0;
+    clip-path: polygon(
+        0% 0%,             /* 左上角 */
+        100% 0%,            /* 右上角 */
+        100% 100%,          /* 右下角（矩形的右侧底点）*/
+        50% 15px,           /* V形尖点 (水平居中，距离顶部15px) */
+        0% 100%             /* 左下角（矩形的左侧底点）*/
+    );
+}
+
+/* 下方的黑色图形 (倒置) */
+.middle-middle::after {
+    bottom: 0;
+    clip-path: polygon(
+        0% 100%,            /* 左下角 */
+        100% 100%,           /* 右下角 */
+        100% 0%,             /* 右上角（矩形的右侧顶端）*/
+        50% calc(100% - 15px), /* V形尖点 (水平居中，距离底部15px) */
+        0% 0%                /* 左上角（矩形的左侧顶端）*/
+    );
+}
+
+/* 容器以容纳四个输入框 */
+.middle-middle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 40px 15px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 4;
+}
+
+.middle-middle-grid textarea {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    /* border-radius: 4px; <-- 删除此行 */
+    font-size: 0.9rem;
+    text-align: center;
+    resize: none;
+    box-sizing: border-box;
+}
+
+
+.controls {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#generatePdfBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    /* border-radius: 6px; <-- 删除此行 */
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#generatePdfBtn:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,47 @@
+<svg width="305" height="210" viewBox="0 0 305 210" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .border { stroke: black; stroke-width: 0.5; fill: none; }
+        .col-line { stroke: black; stroke-width: 0.2; }
+        .text { font-family: 'NotoSansSC-Regular', sans-serif; }
+        .main-title-text { font-size: 12px; text-anchor: middle; writing-mode: vertical-rl; letter-spacing: 2px; }
+        .hall-name-text { font-size: 12px; text-anchor: middle; writing-mode: vertical-rl; letter-spacing: 2px; }
+        .gen-text { font-size: 4px; text-anchor: middle; writing-mode: vertical-rl; }
+        .body-text { font-size: 8px; text-anchor: start; }
+    </style>
+
+    <!-- Outer Border -->
+    <rect x="0.25" y="0.25" width="304.5" height="209.5" class="border" />
+
+  
+    <!-- Central Column -->
+    <g id="central-column">
+        <rect x="142.5" y="0" width="20" height="210" class="border" />
+        <text id="main-title" class="text main-title-text" x="150.5" y="30" dominant-baseline="middle">陸氏族谱</text>
+        
+        <polygon points="142.5,60 162.5,60 162.5,68 152.5,64 142.5,68 142.5,60" fill="black" />
+
+        <text id="gen-1" class="text gen-text" x="146.5" y="78" dominant-baseline="middle">三世</text>
+        <text id="gen-2" class="text gen-text" x="156.5" y="78" dominant-baseline="middle">四世</text>
+
+        <text id="gen-1-idx" class="text gen-text" x="146.5" y="143" dominant-baseline="middle">零零六</text>
+        <text id="gen-2-idx" class="text gen-text" x="156.5" y="143" dominant-baseline="middle">零零五</text>
+
+
+        <polygon points="142.5,158 162.5,158 162.5,150 152.5,154 142.5,150 142.5,158" fill="black" />
+    
+
+        <text id="hall-name" class="text hall-name-text" x="150.5" y="185" dominant-baseline="middle">三德堂</text>
+    </g>
+
+    <!-- Content Placeholders -->
+    <g id="left-content-group">
+        <foreignObject x="22.5" y="22" dominant-baseline="hanging" width="120" height="210">
+            <p id="left-page-content" class="text body-text">左页内容</p>
+        </foreignObject>
+    </g>
+    <g id="right-content-group">
+        <foreignObject x="196" y="22" dominant-baseline="hanging" width="120" height="210">
+            <p id="right-page-content" class="text body-text">右页内容</p>
+        </foreignObject>
+    </g>
+</svg>

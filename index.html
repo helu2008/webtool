@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碟记式家谱生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>碟记式家谱生成器</h1>
+            <p>请在下方输入您的家谱内容，然后生成PDF。</p>
+        </header>
+
+        <div class="family-tree-layout">
+            <div class="page left-page">
+                <h2>左页</h2>
+                <textarea id="leftPageContent" placeholder="请输入左页文字内容..."></textarea>
+                <p>或上传图片：</p>
+                <input type="file" id="leftPageImage" accept="image/*">
+                <img id="leftPagePreview" class="image-preview" src="#" alt="左页图片预览">
+            </div>
+
+            <div class="middle-section">
+                <div class="middle-top">
+                    <h2>中间上</h2>
+                    <textarea id="middleTopContent" placeholder="请输入中间上内容...">陆氏族谱</textarea>
+                </div>
+                <div class="middle-middle">
+                    <h2>中间中</h2>
+                    <div class="middle-middle-grid">
+                        <textarea id="mmTopLeft" placeholder="如：三世"></textarea>
+                        <textarea id="mmTopRight" placeholder="如：四世"></textarea>
+                        <textarea id="mmBottomLeft" placeholder="如：零零六"></textarea>
+                        <textarea id="mmBottomRight" placeholder="如：零零五"></textarea>
+                    </div>
+                </div>
+                <div class="middle-bottom">
+                    <h2>中间下</h2>
+                    <textarea id="middleBottomContent" placeholder="请输入中间下内容...">三德堂</textarea>
+                </div>
+            </div>
+
+            <div class="page right-page">
+                <h2>右页</h2>
+                <textarea id="rightPageContent" placeholder="请输入右页文字内容..."></textarea>
+                <p>或上传图片：</p>
+                <input type="file" id="rightPageImage" accept="image/*">
+                <img id="rightPagePreview" class="image-preview" src="#" alt="右页图片预览">
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>实时预览</h2>
+            <div id="svgPreview"></div>
+        </div>
+
+        <div class="controls">
+            <button id="generatePdfBtn">生成PDF并下载</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg2pdf.js@2.2.2/dist/svg2pdf.umd.min.js"></script>
+    <script src="font.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
